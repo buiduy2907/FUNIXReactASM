@@ -9,7 +9,7 @@ class StaffList extends Component{
 
         this.state={
             selectedStaff:null,
-            className:'col-lg-4'
+            colSet:'col-lg-4'
         }
     }
     onStaffSelect(staff){
@@ -20,20 +20,19 @@ class StaffList extends Component{
     }
     onSet2(){
         this.setState({
-            className: 'col-lg-6'
+            colSet: 'col-lg-6'
         })
     }
     onSet3(){
         this.setState({
-            className: 'col-lg-4'
+            colSet: 'col-lg-4'
         })
     }
     onSet6(){
         this.setState({
-            className: 'col-lg-2'
+            colSet: 'col-lg-2'
         })
     }
-
 
     renderStaff(staff){
         if(staff!=null){
@@ -58,7 +57,7 @@ class StaffList extends Component{
     render(){
         const liststaff= this.props.staffs.map((staff)=>{
             return(
-                <div className={this.state.className}>
+                <div className={this.state.colSet}>
                     <div key={staff.id}>
                         <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
                     </div>

@@ -1,0 +1,13 @@
+{
+  "name": "rjs_asm1",
+  "version": "1.0.0",
+  "description": "ASM1",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BUIDUY",
+  "license": "ISC",
+  "lite": "lite-sever"
+}

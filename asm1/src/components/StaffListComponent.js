@@ -9,6 +9,7 @@ class StaffList extends Component{
 
         this.state={
             selectedStaff:null,
+            className:'col-lg-4'
         }
     }
     onStaffSelect(staff){
@@ -16,6 +17,21 @@ class StaffList extends Component{
             selectedStaff:staff
         })
 
+    }
+    onSet2(){
+        this.setState({
+            className: 'col-lg-6'
+        })
+    }
+    onSet3(){
+        this.setState({
+            className: 'col-lg-4'
+        })
+    }
+    onSet6(){
+        this.setState({
+            className: 'col-lg-2'
+        })
     }
 
 
@@ -39,43 +55,10 @@ class StaffList extends Component{
             )   
         }
     }
-    // onSet2(){
-    //     const liststaff= this.props.staffs.map((staff)=>{
-    //         return(
-    //             <div className='col-6'>
-    //                 <div key={staff.id}>
-    //                     <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
-    //                 </div>
-    //             </div>             
-    //         )     
-    //     })
-    // }
-    // onSet3(){
-    //     const liststaff= this.props.staffs.map((staff)=>{
-    //         return(
-    //             <div className='col-4'>
-    //                 <div key={staff.id}>
-    //                     <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
-    //                 </div>
-    //             </div>             
-    //         )
-    //     }) 
-    // }
-    // onSet6(){
-    //     const liststaff= this.props.staffs.map((staff)=>{
-    //         return(
-    //             <div className='col-2'>
-    //                 <div key={staff.id}>
-    //                     <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
-    //                 </div>
-    //             </div>             
-    //         )   
-    //     })
-    // }
     render(){
         const liststaff= this.props.staffs.map((staff)=>{
             return(
-                <div className='col-12 col-xs-6 col-md-6 col-lg-4'>
+                <div className={this.state.className}>
                     <div key={staff.id}>
                         <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
                     </div>

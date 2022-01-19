@@ -68,6 +68,8 @@ class StaffList extends Component{
             <div className="container">
                 <div className="row">  
                     {liststaff}
+                </div>
+                <div className='my-2'>
                     <input type="button" value={2} onClick={()=>this.onSet2()}></input>
                     <input type="button" value={3} onClick={()=>this.onSet3()}></input>
                     <input type="button" value={6} onClick={()=>this.onSet6()}></input>

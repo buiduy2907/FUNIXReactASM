@@ -39,8 +39,9 @@ class StaffList extends Component{
             const department = staff.department.name;
             return(
                 <Card className='my-1'>
-                    <CardTitle className='h4'>Họ và tên: {staff.name}</CardTitle>
+                    <CardImg src={staff.image}></CardImg>
                     <CardBody>
+                    <CardTitle className='h4'>Họ và tên: {staff.name}</CardTitle>
                         <CardTitle>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</CardTitle>
                         <CardText>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</CardText>
                         <CardText>Phòng ban{department}</CardText>

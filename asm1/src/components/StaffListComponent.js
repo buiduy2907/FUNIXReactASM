@@ -9,7 +9,7 @@ class StaffList extends Component{
 
         this.state={
             selectedStaff:null,
-            colSet:'col-xs-12 col-sm-6 col-md-4 col-lg-4'
+            colSet:'col-xs-12 col-sm-6 col-md-4 col-lg-4 my-1'
         }
     }
     onStaffSelect(staff){
@@ -20,17 +20,17 @@ class StaffList extends Component{
     }
     onSet2(){
         this.setState({
-            colSet: 'col-xs-12 col-sm-6 col-md-6 col-lg-6'
+            colSet: 'col-xs-12 col-sm-6 col-md-6 col-lg-6 my-1'
         })
     }
     onSet3(){
         this.setState({
-            colSet: 'col-xs-12 col-sm-4 col-md-4 col-lg-4'
+            colSet: 'col-xs-12 col-sm-4 col-md-4 col-lg-4 my-1'
         })
     }
     onSet6(){
         this.setState({
-            colSet: 'col-xs-12 col-sm-2 col-md-2 col-lg-2'
+            colSet: 'col-xs-12 col-sm-2 col-md-2 col-lg-2 my-1'
         })
     }
 
@@ -69,10 +69,8 @@ class StaffList extends Component{
     render(){
         const liststaff= this.props.staffs.map((staff)=>{
             return(
-                <Card className={this.state.colSet}>
-                    <div key={staff.id}>
+                <Card className={this.state.colSet} key={staff.id}>
                         <CardText onClick={()=>this.onStaffSelect(staff)}>{staff.name}</CardText>
-                    </div>
                 </Card>           
             )
         });
@@ -83,6 +81,7 @@ class StaffList extends Component{
                     {liststaff}
                 </div>
                 <div className='my-2'>
+                    <p>Bấm vào tên nhân viên để xem thông tin.</p>
                     <h5>Hiển thị số cột:</h5>
                     <input type="button" value={2} onClick={()=>this.onSet2()}></input>
                     <input type="button" value={3} onClick={()=>this.onSet3()}></input>

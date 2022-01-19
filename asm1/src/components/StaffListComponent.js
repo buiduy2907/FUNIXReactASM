@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {CardText,Card,CardBody,CardTitle,CardImg} from 'reactstrap'
+import {CardText,Card,CardBody,CardTitle,CardImg, Row,Col} from 'reactstrap'
 import dateFormat from 'dateformat'
 
 
@@ -38,17 +38,26 @@ class StaffList extends Component{
         if(staff!=null){
             const department = staff.department.name;
             return(
-                <Card className='my-1'>
-                    <CardImg src={staff.image}></CardImg>
-                    <CardBody>
-                    <CardTitle className='h4'>Họ và tên: {staff.name}</CardTitle>
-                        <CardTitle>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</CardTitle>
-                        <CardText>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</CardText>
-                        <CardText>Phòng ban{department}</CardText>
-                        <CardText>Số ngày nghỉ còn lại: {staff.annualLeave}</CardText>
-                        <CardText>Số ngày đã làm thêm: {staff.overTime}</CardText>
-                    </CardBody>
-                </Card>
+                <Row className='container-fluid'>
+                    <Col className='col-lg-6'>
+                        <Card>
+                            <CardBody>
+                            <CardTitle className='h4'>Họ và tên: {staff.name}</CardTitle>
+                                <CardTitle>Ngày sinh: {dateFormat(staff.doB,"dd/mm/yyyy")}</CardTitle>
+                                <CardText>Ngày vào công ty: {dateFormat(staff.startDate,"dd/mm/yyyy")}</CardText>
+                                <CardText>Phòng ban{department}</CardText>
+                                <CardText>Số ngày nghỉ còn lại: {staff.annualLeave}</CardText>
+                                <CardText>Số ngày đã làm thêm: {staff.overTime}</CardText>
+                                <CardText>Hệ số lương: {staff.salaryScale}</CardText>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                    <Col className='col-lg-6'>
+                        <CardBody>
+                            <CardImg src={staff.image} alt={staff.name}></CardImg>
+                        </CardBody>
+                    </Col>
+                </Row>
             )
         }
         else{
@@ -60,20 +69,21 @@ class StaffList extends Component{
     render(){
         const liststaff= this.props.staffs.map((staff)=>{
             return(
-                <div className={this.state.colSet}>
+                <Card className={this.state.colSet}>
                     <div key={staff.id}>
-                        <div onClick={()=>this.onStaffSelect(staff)}>{staff.name}</div>
+                        <CardText onClick={()=>this.onStaffSelect(staff)}>{staff.name}</CardText>
                     </div>
-                </div>             
+                </Card>           
             )
         });
         return(
             <div className="container">
+                <h5 className='mt-1'>DANH SÁCH NHÂN VIÊN CÔNG TI</h5>
                 <div className="row">  
                     {liststaff}
                 </div>
                 <div className='my-2'>
-                    <h5>Hiển thị trang:</h5>
+                    <h5>Hiển thị số cột:</h5>
                     <input type="button" value={2} onClick={()=>this.onSet2()}></input>
                     <input type="button" value={3} onClick={()=>this.onSet3()}></input>
                     <input type="button" value={6} onClick={()=>this.onSet6()}></input>

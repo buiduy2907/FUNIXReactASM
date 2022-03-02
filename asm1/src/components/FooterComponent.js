@@ -18,10 +18,6 @@ function Footer(props) {
               <br />
               <i className="fa fa-fax fa-lg"></i>: +84353760016
               <br />
-              <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a href="buiduy.us@gmail.com">
-                buiduy.us@gmail.com
-              </a>
             </address>
           </div>
           <div className="col-12 col-sm-4 align-self-center">

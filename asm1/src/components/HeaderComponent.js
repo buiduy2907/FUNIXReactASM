@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   Nav,
   Navbar,
@@ -35,19 +36,19 @@ class Header extends Component {
               <Nav navbar>
                 <NavItem>
                   <NavLink className="nav-link" href="/staff">
-                    <i class="fa fa-users" aria-hidden="true"></i> 
+                  <FontAwesomeIcon icon="fa-solid fa-users" />
                     <span>Nhân Viên</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" href="/dept">
-                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                  <FontAwesomeIcon icon="fa-solid fa-address-card" />
                     <span>Phòng Ban</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className="nav-link" href="/salary">
-                    <i class="fa fa-money" aria-hidden="true"></i> 
+                  <FontAwesomeIcon icon="fa-solid fa-money-check-dollar" />
                     <span>Bảng Lương</span>
                   </NavLink>
                 </NavItem>

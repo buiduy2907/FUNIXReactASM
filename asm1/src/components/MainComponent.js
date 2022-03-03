@@ -7,6 +7,7 @@ import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import StaffDetail from "./StaffDetailComponent";
 import DeptList from './DeptComponent';
 import SlaryList from "./SlaryComponent";
+import DepDetail from "./DeptDetailComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -24,9 +25,20 @@ class Main extends Component {
         <StaffDetail
           staff={
             this.state.staffs.filter(
-              (staff) => staff.id === parseInt(params.id, 10) //condition
-            )[0] // 0 la index cua mang
+              (staff) => staff.id === parseInt(params.id, 10) 
+            )[0]
           }
+        />
+      );
+    };
+    const DepDetailWithId = () => {
+      const params = useParams();
+      return (
+        <DepDetail
+          staffs={this.state.staffs.filter(
+            (staff) => staff.department.id === params.id
+          )}
+          dep={this.state.departments.filter((dep) => dep.id === params.id)[0]}
         />
       );
     };
@@ -41,6 +53,7 @@ class Main extends Component {
           />
           <Route path="/staff/:id" element={<StaffWithId />} />
           <Route path="/dept" element={<DeptList depts={this.state.departments} />} />
+          <Route path="/dept/:id" element={<DepDetailWithId />} />
           <Route path="/salary" element={<SlaryList salarys={this.state.staffs} />} />
           <Route path="*" element={<Navigate to="/staff" />} />
         </Routes>

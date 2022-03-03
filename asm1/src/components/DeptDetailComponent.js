@@ -5,8 +5,7 @@ function DeptDetail(props) {
   return (
     <div>
       <div className="container">
-        <div className="row">
-        </div>
+        <div className="row">{props.dept.name}</div>
       </div>
       <StaffList staffs={props.staffs} />
     </div>

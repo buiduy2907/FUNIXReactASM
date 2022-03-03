@@ -5,13 +5,11 @@ import Main from "./components/MainComponent";
 class App extends Component {
   render() {
     return (
-      <div>
       <BrowserRouter>
-      <Main />
-    </BrowserRouter>
-  </div>
-  );
-}
+        <Main />
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

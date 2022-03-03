@@ -19,7 +19,7 @@ function Footer(props) {
               <i className="fa fa-fax fa-lg"></i>: +84353760016
               <br />
               <i className="fa fa-envelope fa-lg"></i>:{" "}
-              <a href="buiduy.us@gmail.com">
+              <a href="#">
                 buiduy.us@gmail.com
               </a>
             </address>

@@ -1,7 +1,7 @@
 import React from "react";
 import StaffList from "./StaffListComponent";
 
-function DepDetail(props) {
+function DeptDetail(props) {
   return (
     <div>
       <div className="container">
@@ -13,4 +13,4 @@ function DepDetail(props) {
     </div>
   );
 }
-export default DepDetail;
+export default DeptDetail;

@@ -39,7 +39,9 @@ class Main extends Component {
           staffs={this.state.staffs.filter(
             (staff) => staff.department.id === params.id
           )}
-          dept={this.state.departments.filter((dep) => dep.id === params.id)[0]}
+          dept={
+            this.state.departments.filter((dept) => dept.id === params.id)[0]
+          }
         />
       );
     };

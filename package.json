@@ -13,5 +13,10 @@
   "lite": "lite-sever",
   "devDependencies": {
     "lite-server": "2.3"
+  },
+  "dependencies": {
+    "react-redux": "^7.2.6",
+    "react-redux-form": "^1.16.14",
+    "redux": "^4.1.2"
   }
 }

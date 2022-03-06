@@ -1,6 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { CardText, Card, CardBody, CardImg } from "reactstrap";
 import { Link } from "react-router-dom";
+import Search from "./SearchComponent";
+import AddNewStaff from "./AddStaffComponent";
 
 function RenderStaff({ staff }) {
   return (
@@ -14,21 +16,49 @@ function RenderStaff({ staff }) {
     </Card>
   );
 }
-const StaffList = (props) => {
-  const stafflist = props.staffs.map((staff) => {
+
+class StaffList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchName: "",
+    };
+    this.getSearchkey = this.getSearchkey.bind(this);
+  }
+
+  getSearchkey(key) {
+    this.setState({
+      searchName: key,
+    });
+  }
+
+  render() {
+    const stafflist = this.props.staffs
+      .filter((staff) =>
+        staff.name.toLowerCase().includes(this.state.searchName.toLowerCase())
+      )
+      .map((staff) => {
+        return (
+          <div
+            key={staff.id}
+            className="col-xs-6 col-sm-4 col-md-2 col-lg-2 my-1"
+          >
+            <RenderStaff staff={staff} />
+          </div>
+        );
+      });
     return (
-      <div key={staff.id} className="col-xs-6 col-sm-4 col-md-2 col-lg-2 my-1">
-        <RenderStaff staff={staff} />
+      <div className="container">
+        <div className="row mt-2">
+          <h2 className="col-lg-3">NHÂN VIÊN</h2>
+          <AddNewStaff className="col-lg-4" />
+          <Search className="col-lg-4" parentCallback={this.getSearchkey} />
+        </div>
+        <div className="row">{stafflist}</div>
       </div>
     );
-  });
-
-  return (
-    <div className="container">
-      <h5 className="mt-2">NHÂN VIÊN</h5>
-      <div className="row">{stafflist}</div>
-    </div>
-  );
-};
+  }
+}
 
 export default StaffList;

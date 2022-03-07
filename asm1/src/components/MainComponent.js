@@ -2,29 +2,37 @@ import React, { Component } from "react";
 import Footer from "./FooterComponent";
 import Header from "./HeaderComponent";
 import StaffList from "./StaffListComponent";
-import { STAFFS, DEPARTMENTS } from "../shared/staffs";
-import { Routes, Route, Navigate, useParams } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useParams,
+  withRouter,
+} from "react-router-dom";
 import StaffDetail from "./StaffDetailComponent";
 import DeptList from "./DeptComponent";
 import SlaryList from "./SlaryComponent";
 import DeptDetail from "./DeptDetailComponent";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return {
+    staffs: state.staffs,
+    departments: state.departments,
+  };
+};
 
 class Main extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      staffs: STAFFS,
-      departments: DEPARTMENTS,
-    };
   }
-
   render() {
     const StaffWithId = () => {
       const params = useParams();
       return (
         <StaffDetail
           staff={
-            this.state.staffs.filter(
+            this.props.staffs.filter(
               (staff) => staff.id === parseInt(params.id, 10)
             )[0]
           }
@@ -36,11 +44,11 @@ class Main extends Component {
       const params = useParams();
       return (
         <DeptDetail
-          staffs={this.state.staffs.filter(
+          staffs={this.props.staffs.filter(
             (staff) => staff.department.id === params.id
           )}
           dept={
-            this.state.departments.filter((dept) => dept.id === params.id)[0]
+            this.props.departments.filter((dept) => dept.id === params.id)[0]
           }
         />
       );
@@ -52,17 +60,17 @@ class Main extends Component {
         <Routes>
           <Route
             path="/staff"
-            element={<StaffList staffs={this.state.staffs} />}
+            element={<StaffList staffs={this.props.staffs} />}
           />
           <Route path="/staff/:id" element={<StaffWithId />} />
           <Route
             path="/dept"
-            element={<DeptList depts={this.state.departments} />}
+            element={<DeptList depts={this.props.departments} />}
           />
           <Route path="/dept/:id" element={<DeptDetailWithId />} />
           <Route
             path="/salary"
-            element={<SlaryList salarys={this.state.staffs} />}
+            element={<SlaryList salarys={this.props.staffs} />}
           />
           <Route path="*" element={<Navigate to="/staff" />} />
         </Routes>
@@ -72,4 +80,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default connect(mapStateToProps)(Main);

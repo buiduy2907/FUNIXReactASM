@@ -11,7 +11,9 @@ class App extends Component {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Main />
+          <div>
+            <Main />
+          </div>
         </BrowserRouter>
       </Provider>
     );

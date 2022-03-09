@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import Footer from "./FooterComponent";
 import Header from "./HeaderComponent";
 import StaffList from "./StaffListComponent";
-import {
-  Routes,
-  Route,
-  Navigate,
-  useParams,
-  withRouter,
-} from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import StaffDetail from "./StaffDetailComponent";
 import DeptList from "./DeptComponent";
 import SlaryList from "./SlaryComponent";

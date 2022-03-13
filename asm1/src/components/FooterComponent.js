@@ -27,6 +27,7 @@ function Footer() {
               <a
                 className="btn btn-social-icon btn-google"
                 href="https://www.google.com/intl/vi/gmail/about/"
+                target="_blank"
               >
                 <i className="bi bi-google"></i>
                 <svg
@@ -43,6 +44,7 @@ function Footer() {
               <a
                 className="btn btn-social-icon btn-facebook"
                 href="http://www.facebook.com/profile.php?id="
+                target="_blank"
               >
                 <i className="bi bi-facebook"></i>
                 <svg
@@ -59,6 +61,7 @@ function Footer() {
               <a
                 className="btn btn-social-icon btn-linkedin"
                 href="http://www.linkedin.com/in/"
+                target="_blank"
               >
                 <i className="bi bi-linkedin"></i>
                 <svg
@@ -75,6 +78,7 @@ function Footer() {
               <a
                 className="btn btn-social-icon btn-twitter"
                 href="http://twitter.com/"
+                target="_blank"
               >
                 <i className="bi bi-twitter"></i>
                 <svg

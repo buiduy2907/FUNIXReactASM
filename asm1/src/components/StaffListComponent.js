@@ -23,13 +23,21 @@ class StaffList extends Component {
 
     this.state = {
       searchName: "",
+      newStaff: {},
     };
-    this.getSearchkey = this.getSearchkey.bind(this);
+    this.getSearchKey = this.getSearchKey.bind(this);
+    this.getNewStaffInfo = this.getNewStaffInfo.bind(this);
   }
 
-  getSearchkey(key) {
+  getSearchKey(key) {
     this.setState({
       searchName: key,
+    });
+  }
+
+  getNewStaffInfo(info) {
+    this.setState({
+      newStaff: info,
     });
   }
 
@@ -52,8 +60,12 @@ class StaffList extends Component {
       <div className="container">
         <div className="row mt-2">
           <h2 className="col-lg-3">NHÂN VIÊN</h2>
-          <AddNewStaff className="col-lg-4" />
-          <Search className="col-lg-4" parentCallback={this.getSearchkey} />
+          <AddNewStaff
+            className="col-lg-4"
+            staffs={this.props.staffs}
+            sendInfo={this.getNewStaffInfo}
+          />
+          <Search className="col-lg-4" parentCallback={this.getSearchKey} />
         </div>
         <div className="row">{stafflist}</div>
       </div>

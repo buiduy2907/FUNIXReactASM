@@ -22,10 +22,7 @@ class AddNewStaff extends Component {
     this.state = {
       isModalOpen: false,
       id: "",
-      name: "",
-      doB: "",
       salaryScale: 1,
-      startDate: "",
       department: "Finance",
       annualLeave: 0,
       overTime: 0,
@@ -52,13 +49,13 @@ class AddNewStaff extends Component {
     this.onToggleModal();
     const newStaff = {
       id: this.props.staffs.length,
-      name: this.state.name,
-      doB: this.state.doB,
-      salaryScale: this.state.salaryScale,
-      startDate: this.state.startDate,
-      department: this.defineDep(this.state.department),
-      annualLeave: this.state.annualLeave,
-      overTime: this.state.overTime,
+      name: values.name,
+      doB: values.doB,
+      salaryScale: values.salaryScale,
+      startDate: values.startDate,
+      department: this.defineDep(values.department),
+      annualLeave: values.annualLeave,
+      overTime: values.overTime,
       salary: this.state.salary,
       image: this.state.image,
     };
@@ -110,7 +107,7 @@ class AddNewStaff extends Component {
         <Modal isOpen={this.state.isModalOpen}>
           <ModalHeader toggle={this.onToggleModal}>Thêm nhân viên</ModalHeader>
           <ModalBody>
-            <LocalForm onSubmit={(values) => this.onHandleAddStaff(values)}>
+            <LocalForm onSubmit={this.onHandleAddStaff}>
               <Row className="form-group">
                 <Label htmlFor="name" md={4}>
                   Tên

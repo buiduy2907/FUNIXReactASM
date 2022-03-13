@@ -19,14 +19,18 @@ function StaffDetail({ staff }) {
     return (
       <Container className="my-3">
         <Breadcrumb>
-          <BreadcrumbItem href="/staff"  tag="a">Nhân Viên</BreadcrumbItem>
-          <BreadcrumbItem href="#"  tag="span">{staff.name}</BreadcrumbItem>
+          <BreadcrumbItem href="/staff" tag="a">
+            Nhân Viên
+          </BreadcrumbItem>
+          <BreadcrumbItem href="#" tag="span">
+            {staff.name}
+          </BreadcrumbItem>
         </Breadcrumb>
         <Row>
-          <Col  xs='12' sm='4' md ='3' lg='3'>
+          <Col xs="12" sm="4" md="3" lg="3">
             <CardImg width="100%" src={staff.image} alt={staff.name}></CardImg>
           </Col>
-          <Col  xs='12'sm='8' md ='9' lg='9'>
+          <Col xs="12" sm="8" md="9" lg="9">
             <Card>
               <CardBody>
                 <CardTitle className="h4">Họ và tên: {staff.name}</CardTitle>

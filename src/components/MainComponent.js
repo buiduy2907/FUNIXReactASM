@@ -98,7 +98,7 @@ class Main extends Component {
             }
           />
           <Route
-            path="/aboutme"
+            path="/aboutus"
             element={<About leaders={this.props.leaders} />}
           />
           <Route path="/menu" element={<Menu dishes={this.props.dishes} />} />

@@ -31,11 +31,11 @@ class CommentForm extends Component {
     this.setState({
       isModalOpen: !this.state.isModalOpen,
     });
-    console.log(this.state.isModalOpen);
   };
   onSubmitBtn(values) {
     this.onToggleModal;
-    this.props.addComment(
+    console.log(values);
+    this.props.postComment(
       this.props.dishId,
       values.rating,
       values.author,

@@ -13,7 +13,7 @@ import CommentForm from "./CommentFormComponent";
 import { Loading } from "./LoadingComponent";
 import { baseUrl } from "../shared/baseUrl";
 
-function RenderComment({ comments, addComment, dishId }) {
+function RenderComment({ comments, postComment, dishId }) {
   const comment = comments.map((cmt) => {
     return (
       <div key={cmt.id}>
@@ -33,7 +33,7 @@ function RenderComment({ comments, addComment, dishId }) {
     <div className="col-12 col-md-5 m-1">
       <h4>Comments</h4>
       {comment}
-      <CommentForm dishId={dishId} addComment={addComment} />
+      <CommentForm dishId={dishId} postComment={postComment} />
     </div>
   );
 }
@@ -84,7 +84,7 @@ const DishDetail = (props) => {
           <RenderDetail dish={props.dish} />
           <RenderComment
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}
           />
         </div>

@@ -33,7 +33,7 @@ class CommentForm extends Component {
     });
   };
   onSubmitBtn(values) {
-    this.onToggleModal;
+    this.onToggleModal();
     console.log(values);
     this.props.postComment(
       this.props.dishId,

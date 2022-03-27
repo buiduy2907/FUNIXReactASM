@@ -15,6 +15,7 @@ import {
   fetchPromos,
 } from "../redux/ActionCreator";
 import { actions } from "react-redux-form";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const mapStatetoProps = (state) => {
   return {
@@ -90,22 +91,31 @@ class Main extends Component {
     return (
       <div>
         <Header />
-        <Routes>
-          <Route path="/home" element={<Homepage />} />
-          <Route
-            path="/contactme"
-            element={
-              <Contact resetFeedbackForm={() => this.props.resetFeedbackForm} />
-            }
-          />
-          <Route
-            path="/aboutus"
-            element={<About leaders={this.props.leaders} />}
-          />
-          <Route path="/menu" element={<Menu dishes={this.props.dishes} />} />
-          <Route path="/menu/:dishId" element={<DishWithId />} />
-          <Route path="*" element={<Navigate to="/home" />} />
-        </Routes>
+        <TransitionGroup>
+          <CSSTransition in={false} classNames="page" timeout={300}>
+            <Routes>
+              <Route path="/home" element={<Homepage />} />
+              <Route
+                path="/contactme"
+                element={
+                  <Contact
+                    resetFeedbackForm={() => this.props.resetFeedbackForm}
+                  />
+                }
+              />
+              <Route
+                path="/aboutus"
+                element={<About leaders={this.props.leaders} />}
+              />
+              <Route
+                path="/menu"
+                element={<Menu dishes={this.props.dishes} />}
+              />
+              <Route path="/menu/:dishId" element={<DishWithId />} />
+              <Route path="*" element={<Navigate to="/home" />} />
+            </Routes>
+          </CSSTransition>
+        </TransitionGroup>
         <Footer />
       </div>
     );
